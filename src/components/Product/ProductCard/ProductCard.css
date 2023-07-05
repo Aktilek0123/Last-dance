@@ -2,6 +2,7 @@
   margin: 0;
   padding: 2%;
   width: 100%;
+  height: 100vh;
 }
 
 .productCard_container > h2 {

@@ -4,6 +4,7 @@ import ProductCard from "../../components/Product/ProductCard/ProductCard";
 import { useSelector } from "react-redux";
 import { current } from "@reduxjs/toolkit";
 import { Box, Pagination } from "@mui/material";
+// import Footer from "../../components/Footer/Footer";
 
 const Products = () => {
   const [search, setSearch] = useState("");
@@ -96,6 +97,7 @@ const Products = () => {
           onChange={handleChange}
         />
       </Box>
+      {/* <Footer /> */}
     </>
   );
 };

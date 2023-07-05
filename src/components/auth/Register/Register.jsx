@@ -31,6 +31,7 @@ const Register = () => {
 
   return (
     <div className="container">
+      <div className="container_shadow"></div>
       <div className="mainModal_login">
         <div className="modal_block1">
           <h2 className="modal_h2">Register</h2>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../components/Product/ProductCard/ProductCard";
 import ProductCard from "../../components/Product/ProductCard/ProductCard";
 import { useSelector } from "react-redux";
@@ -8,15 +8,27 @@ import { Box, Pagination } from "@mui/material";
 
 const Products = () => {
   const [search, setSearch] = useState("");
-
   const { products } = useSelector((state) => state.products);
+  const [data, setData] = useState([]);
+  const [filter, setFilter] = useState("all");
+  useEffect(() => {
+    // const vremennaya = products;
+    setData(products);
+  }, [products]);
 
-  const searchProduct = products.filter((product) => {
+  const handleFilter = (sort) => {
+    setFilter(sort);
+  };
+
+  const filteredData =
+    filter === "all" ? data : data.filter((item) => item.sort === filter);
+  console.log(filteredData);
+  const searchProduct = filteredData.filter((product) => {
     return product.name.toLowerCase().includes(search.toLowerCase());
   });
 
   const [page, setPage] = useState(1);
-  const itemPage = 10;
+  const itemPage = 4;
   const count = Math.ceil(searchProduct.length / itemPage);
 
   function currentData() {
@@ -44,7 +56,7 @@ const Products = () => {
                 value={search}
               />
             </div>
-            <div className="slide_wrapper">
+            <div className="slide_wrapper" onClick={() => handleFilter("all")}>
               <div className="relative">
                 <span>ALL</span>
               </div>
@@ -52,7 +64,10 @@ const Products = () => {
                 <span>ALL</span>
               </div>
             </div>
-            <div className="slide_wrapper">
+            <div
+              className="slide_wrapper"
+              onClick={() => handleFilter("GRAPPE")}
+            >
               <div className="relative">
                 <span>GRAPPE</span>
               </div>
@@ -60,7 +75,7 @@ const Products = () => {
                 <span>GRAPPE</span>
               </div>
             </div>
-            <div className="slide_wrapper">
+            <div className="slide_wrapper" onClick={() => handleFilter("Wine")}>
               <div className="relative">
                 <span>WINES</span>
               </div>
@@ -68,7 +83,10 @@ const Products = () => {
                 <span>WINES</span>
               </div>
             </div>
-            <div className="slide_wrapper">
+            <div
+              className="slide_wrapper"
+              onClick={() => handleFilter("FRANCIACORTA DOGG")}
+            >
               <div className="relative">
                 <span>FRANCIACORTA</span>
               </div>
@@ -92,6 +110,7 @@ const Products = () => {
       >
         <Pagination
           color="primary"
+          sx={{ color: "white" }}
           count={count}
           page={page}
           onChange={handleChange}

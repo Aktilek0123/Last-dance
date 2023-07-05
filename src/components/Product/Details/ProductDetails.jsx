@@ -18,6 +18,7 @@ import { calcTotalPrice } from "../../function";
 import { getCart } from "../../../store/cart/cartSlice";
 import ProductComments from "../ProductComment/ProductComment";
 import AddCommentForm from "../AddCommentForm/AddCommentForm";
+import Footer from "../../Footer/Footer";
 
 const ProductDetails = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -323,6 +324,7 @@ const ProductDetails = () => {
           <ProductComments productId={productId} />
           <AddCommentForm productId={productId} />
         </div>
+        <Footer />
       </>
     </>
   );

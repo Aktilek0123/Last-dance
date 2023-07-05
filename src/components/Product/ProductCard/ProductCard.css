@@ -15,8 +15,6 @@
 
 .productCard_wrapper {
   position: relative;
-  /* display: flex; */
-  /* flex-wrap: wrap; */
 }
 
 .sidebar {
@@ -57,7 +55,7 @@
   transition: all 1.5s, border 1s ease-in;
 }
 
-.card_item > .absolute:hover {
+.card_item:hover .absolute {
   transition: all 1s ease-in-out;
   clip-path: inset(0 0 0 100%);
 }
@@ -68,6 +66,8 @@
 
 .card_item > .slide_wrapper {
   margin: 0.7em 0;
+  transform: matrix3d(1, 0, 0, 0, 0, 1.2, 3, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  height: 3em;
 }
 
 .card_item_text {

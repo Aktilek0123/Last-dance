@@ -1,4 +1,6 @@
-/* .container {
+.container_footer {
+  position: relative;
+  z-index: 5;
   background-color: black;
   left: 0;
   bottom: 0;
@@ -8,12 +10,12 @@
   color: aqua;
   text-transform: uppercase;
   margin-left: 90vh;
-  
+
   margin-bottom: 50px;
 }
 .top-block {
   color: aqua;
-  
+
   width: 100%;
   margin-left: 85vh;
   margin-bottom: 10%;
@@ -77,4 +79,4 @@ li {
   margin-top: 60px;
   margin-bottom: -100px;
   margin-left: 705px;
-} */
+}

@@ -21,7 +21,7 @@ import AddCommentForm from "../AddCommentForm/AddCommentForm";
 
 const ProductDetails = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [checkProduct, setCheckProduct] = useState(false);
+  // const [checkProduct, setCheckProduct] = useState(false);
   const ref = useRef(null);
   const { user } = useSelector((state) => state.auth);
   const { productId } = useParams();
@@ -54,7 +54,7 @@ const ProductDetails = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  console.log(oneProduct);
+
   useEffect(() => {
     let cart = JSON.parse(localStorage.getItem("cart"));
     if (!cart) {
